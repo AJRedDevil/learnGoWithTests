@@ -1,2 +1,3 @@
 # learnGoWithTests
-Learning golang from https://quii.gitbook.io/learn-go-with-tests/
+
+Learning golang from [https://quii.gitbook.io/learn-go-with-tests/](gitbook)

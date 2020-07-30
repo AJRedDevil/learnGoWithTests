@@ -14,9 +14,13 @@ type Wallet struct {
 	balance Bitcoin
 }
 
-// Deposite will add some Bitcoin to a wallet.
+// Deposit will add some Bitcoin to a wallet.
 func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
+}
+
+func (w *Wallet) Withdraw(amount Bitcoin) {
+	w.balance -= amount
 }
 
 // Balance returns the number of Bitcoin a wallet has.

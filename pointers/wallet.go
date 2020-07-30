@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 // Bitcoin represent a number of Bitcoins.
 type Bitcoin int
@@ -19,9 +22,14 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
 
-// Withdraw subtracts some Bitcoin from the wallet
-func (w *Wallet) Withdraw(amount Bitcoin) {
+// Withdraw subtracts some Bitcoin from the wallet, returning an error if it cannot be performed.
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return errors.New("oh no")
+	}
+
 	w.balance -= amount
+	return nil
 }
 
 // Balance returns the number of Bitcoin a wallet has.

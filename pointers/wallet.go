@@ -1,13 +1,25 @@
 package main
 
-type Wallet struct {
-	balance int
+import "fmt"
+
+// Bitcoin represent a number of Bitcoins.
+type Bitcoin int
+
+func (b Bitcoin) String() string {
+	return fmt.Sprintf("%d BTC", b)
 }
 
-func (w *Wallet) Deposit(amount int) {
+// Wallet stores the number of Bitcoin someone owns.
+type Wallet struct {
+	balance Bitcoin
+}
+
+// Deposite will add some Bitcoin to a wallet.
+func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
 
-func (w *Wallet) Balance() int {
+// Balance returns the number of Bitcoin a wallet has.
+func (w *Wallet) Balance() Bitcoin {
 	return w.balance
 }

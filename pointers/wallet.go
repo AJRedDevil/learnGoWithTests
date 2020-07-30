@@ -25,7 +25,7 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 // Withdraw subtracts some Bitcoin from the wallet, returning an error if it cannot be performed.
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 	if amount > w.balance {
-		return errors.New("oh no")
+		return errors.New("cannot withdraw, insufficient funds")
 	}
 
 	w.balance -= amount
